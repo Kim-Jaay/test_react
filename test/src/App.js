@@ -1,80 +1,77 @@
-
 import { useState } from 'react';
 import './App.css';
-import MainSlider from './component/MainSlider';
 
+
+
+
+import MainSlider from './component/MainSlider'
 const DB = [
   {
     id: 1,
     content: "menu01",
-    link: "/",
+    link: "/s1",
     submenu: [
-      { content: "smenu011", link: "/" },
-      { content: "smenu012", link: "/" },
-      { content: "smenu013", link: "/" }
+      { content: "smenu011", link: "/1" },
+      { content: "smenu012", link: "/2" },
+      { content: "smenu013", link: "/3" },
+
     ]
   },
   {
     id: 2,
     content: "menu02",
-    link: "/",
+    link: "/s1",
     submenu: [
-      { content: "smenu021", link: "/" },
-      { content: "smenu022", link: "/" },
-      { content: "smenu023", link: "/" }
+      { content: "smenu021", link: "/1" },
+      { content: "smenu022", link: "/2" },
+      { content: "smenu023", link: "/3" },
+
     ]
-  }, {
+  },
+  {
     id: 3,
     content: "menu03",
-    link: "/",
+    link: "/s1",
     submenu: [
-      { content: "smenu031", link: "/" },
-      { content: "smenu032", link: "/" },
-      { content: "smenu033", link: "/" }
+      { content: "smenu031", link: "/1" },
+      { content: "smenu032", link: "/2" },
+      { content: "smenu033", link: "/3" },
+
     ]
   }
-
 ]
-function App() {
-  const [CB, setCB] = useState('');
-  const [TG, setTG] = useState(false);
 
+function App() {
+  const [CB, setCB] = useState("");
+  const [TG, setTG] = useState(false);
   return (
     <div className='Wrap'>
       <header>
-        <h1 className={CB} onClick={() => setCB('on')}>BRAND</h1>
-        <h2 className={`${TG ? 'on' : ''}`}  >Toggle Class</h2>
-        <button onClick={() => setTG(!TG)}>class Toggle</button>
-
-        <nav className='Gnb'>
+        <h1 className={CB} onClick={() => setCB('on')}>LOGO</h1>
+        <h2 className={`ggg ${TG ? 'on' : ''}`}>toggle class</h2>
+        <button onClick={() => setTG(!TG)}>class 토글</button>
+        <nav className='GNB'>
           <ul>
             {
               DB.map((it, idx) => <li key={idx}>
-                <a href="{it.link}">{it.content}</a>
+                <a href={it.link}>{it.content}</a>
                 <ul className='smenu'>
                   {
-                    it.submenu.map((smenu, idx) =>
-                      <li key={idx}>
-                        <a href="{smenu.link}">{smenu.content}</a>
-                      </li>)
+                    it.submenu.map((smenu, idx) => <li key={idx}>
+                      <a href={smenu.link}>{smenu.content}</a>
+                    </li>)
                   }
-
-                  {/* <li>
-              <a href="">
-                {it.submenu[0].content}
-              </a>
-            </li> */}
                 </ul>
               </li>)
             }
           </ul>
         </nav>
-      </header >
-
+      </header>
       <main>
         <MainSlider />
       </main>
     </div>
+
   );
 }
 
