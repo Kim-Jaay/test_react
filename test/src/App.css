@@ -1,5 +1,6 @@
 h1.on{color: red;}
 h2.on{color: red;}
+figure.on{color: red; transition: 0.5s;}
 
 .Gnb{border-top:5px solid #ddd; border-bottom: 1px solid #ddd;}
 .Gnb>ul{display: flex; justify-content: space-between; line-height: 50px;}
